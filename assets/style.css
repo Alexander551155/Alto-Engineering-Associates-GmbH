@@ -163,5 +163,11 @@ iframe{
   padding-right: 12px !important;
 }
 
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+
 
 
