@@ -1,84 +1,196 @@
-// Fallback: Wenn IntersectionObserver nicht verfügbar ist, alles direkt anzeigen
-if (!('IntersectionObserver' in window)) {
-  document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => {
-    el.classList.add('is-visible');
-  });
-  return;
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+:root{
+  --brand:#0F172A;
+  --accent:#C2A158;
+  --muted:#64748B;
+}
 
-  /* =========================
-     1) Jahr im Footer
-  ========================== */
-  const y = document.getElementById('y');
-  if (y) {
-    y.textContent = new Date().getFullYear();
+*{
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+}
+
+.btn-accent{
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff !important;
+  border: none;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+}
+
+.btn-accent:hover{
+  filter: brightness(.95);
+  color: #fff !important;
+}
+
+.text-accent{color:var(--accent)!important}
+
+.py-6{
+  padding-top:4.5rem;
+  padding-bottom:4.5rem;
+}
+
+/* HERO */
+.hero{
+  position:relative;
+  min-height:66vh;
+  overflow:hidden;
+  background:#111;
+  width: 100%;
+}
+
+.hero-bg{
+  position:absolute;
+  inset:0;
+  background-image: url('../img/Flugzeug_1.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: scale(1.05);
+  z-index: 0;
+}
+
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg, rgba(15,23,42,.85), rgba(15,23,42,.2));
+  z-index: 1;
+}
+
+.hero .container,
+.hero .container-fluid{
+  position:relative;
+  z-index:2;
+}
+
+/* Cards */
+.lift{
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+
+.lift:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 30px rgba(0,0,0,.08);
+}
+
+.pill{
+  display:inline-block;
+  padding:.6rem 1rem;
+  border:1px solid #e5e7eb;
+  border-radius:999px;
+}
+
+.navbar .btn{
+  font-weight: 600;
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity .7s ease, transform .7s ease;
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Optional: leichtes Stagger für Cards */
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.reveal-stagger.is-visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-stagger.is-visible > *:nth-child(1) { transition-delay: .05s; }
+.reveal-stagger.is-visible > *:nth-child(2) { transition-delay: .12s; }
+.reveal-stagger.is-visible > *:nth-child(3) { transition-delay: .19s; }
+
+/* Hero Zoom */
+@keyframes heroZoom {
+  from { background-size: 105%; }
+  to   { background-size: 112%; }
+}
+
+.hero {
+  animation: heroZoom 14s ease-in-out infinite alternate;
+}
+
+/* Buttons nicer hover */
+.btn-accent, .btn-outline-light {
+  transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+}
+
+.btn-accent:hover, .btn-outline-light:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(0,0,0,.28);
+}
+
+/* Navbar blur on scroll */
+.navbar {
+  transition: box-shadow .2s ease, background-color .2s ease, backdrop-filter .2s ease;
+}
+
+.navbar.scrolled {
+  background: rgba(255,255,255,.85) !important;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+
+/* Font-Size: Mobile normal, Desktop größer */
+html { font-size: 100%; }
+@media (min-width: 992px){
+  html { font-size: 118%; }
+}
+
+/* Nav-Links: responsive */
+.nav-link { 
+  font-weight: 600; 
+  font-size: 1rem;
+  line-height: 1.2;
+}
+@media (min-width: 992px){
+  .nav-link { font-size: 1.15rem; }
+}
+
+/* ===== Mobile Fixes ===== */
+@media (max-width: 576px) {
+  .hero { 
+    min-height: 50vh; 
+    animation: none;
   }
 
-  /* =========================
-     2) Smooth Scroll
-  ========================== */
-  document.querySelectorAll('a[href^="#"]').forEach(link => {
-    link.addEventListener('click', e => {
-      const id = link.getAttribute('href');
-      if (!id || id === '#') return;
-
-      const target = document.querySelector(id);
-      if (!target) return;
-
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      history.pushState(null, '', id);
-    });
-  });
-
-  /* =========================
-     3) Navbar Scroll Effekt (blur + shadow)
-  ========================== */
-  const nav = document.querySelector('.navbar');
-  const onScrollNav = () => {
-    if (!nav) return;
-    nav.classList.toggle('scrolled', window.scrollY > 10);
-  };
-  window.addEventListener('scroll', onScrollNav);
-  onScrollNav(); // direkt beim Laden einmal setzen
-
-  /* =========================
-     4) Back to top Button
-  ========================== */
-  const toTop = document.getElementById('toTop');
-
-  const onScrollTopBtn = () => {
-    if (!toTop) return;
-    toTop.style.display = window.scrollY > 350 ? 'block' : 'none';
-  };
-
-  window.addEventListener('scroll', onScrollTopBtn);
-  onScrollTopBtn(); // direkt beim Laden einmal setzen
-
-  if (toTop) {
-    toTop.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+  .hero h1 { 
+    font-size: 2rem; 
+    line-height: 1.15; 
   }
 
-  /* =========================
-     5) Scroll Reveal Animation
-  ========================== */
-  const revealEls = document.querySelectorAll('.reveal, .reveal-stagger');
-
-  if (revealEls.length > 0) {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          io.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
-
-    revealEls.forEach(el => io.observe(el));
+  .hero .lead { 
+    font-size: 1.05rem; 
   }
 
-});
+  .hero .btn-lg { 
+    width: 100%; 
+  }
+
+  .py-6 { 
+    padding-top: 3rem; 
+    padding-bottom: 3rem; 
+  }
+
+  .card-img-top { 
+    height: 180px; 
+    object-fit: cover; 
+  }
+
+  .card-body { padding: 1rem; }
+  .row.g-4 { --bs-gutter-y: 1rem; }
+}
