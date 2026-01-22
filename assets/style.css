@@ -79,8 +79,14 @@
   border-radius:999px;
 }
 
-.nav-link{font-weight:500}
-.navbar .btn{font-weight:600}
+.nav-link{
+  font-weight: 600;
+  font-size: 1.15rem;
+}
+
+.navbar .btn{
+  font-weight: 600;
+}
 
 html {
   font-size: 118%; /* ca. +3 Stufen */
