@@ -1,14 +1,25 @@
-// год в футере
-document.getElementById('y').textContent = new Date().getFullYear();
+document.addEventListener('DOMContentLoaded', () => {
 
-// плавный скролл к секциям
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-  a.addEventListener('click', e=>{
-    const id = a.getAttribute('href');
-    if(id.length>1){
+  // Jahr im Footer
+  const y = document.getElementById('y');
+  if (y) {
+    y.textContent = new Date().getFullYear();
+  }
+
+  // Smooth Scroll
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      const id = link.getAttribute('href');
+
+      if (!id || id === '#') return;
+
+      const target = document.querySelector(id);
+      if (!target) return;
+
       e.preventDefault();
-      document.querySelector(id).scrollIntoView({behavior:'smooth', block:'start'});
-      history.pushState(null,'',id);
-    }
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      history.pushState(null, '', id);
+    });
   });
+
 });
