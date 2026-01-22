@@ -5,7 +5,30 @@
 }
 
 *{
-  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* iPhone/Safari: verhindert Text-Auto-Zoom + Layout Shift */
+html{
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+html, body{
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Medien dürfen nie breiter als Screen sein */
+img, svg, video, canvas, iframe{
+  max-width: 100% !important;
+  height: auto;
+}
+
+/* iFrames (Google Maps) sind oft Ursache für horizontales Scrollen */
+iframe{
+  display: block;
+  width: 100%;
 }
 
 .btn-accent{
@@ -21,25 +44,31 @@
   color: #fff !important;
 }
 
-
-.text-accent{color:var(--accent)!important}
+.text-accent{
+  color: var(--accent) !important;
+}
 
 .py-6{
-  padding-top:4.5rem;
-  padding-bottom:4.5rem;
+  padding-top: 4.5rem;
+  padding-bottom: 4.5rem;
 }
 
 /* HERO */
 .hero{
-  position:relative;
-  min-height:66vh;
-  overflow:hidden;
-  background:#111;
+  position: relative;
+  min-height: 66vh;
+  overflow: hidden;
+  background: #111;
+
+  /* Wichtig: kein 100vw/negative margins */
+  width: 100%;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 
 .hero-bg{
-  position:absolute;
-  inset:0;
+  position: absolute;
+  inset: 0;
   background-image: url('../img/Flugzeug_1.png');
   background-size: cover;
   background-position: center;
@@ -48,72 +77,44 @@
   z-index: 0;
 }
 
-
 .hero-overlay{
-  position:absolute;
-  inset:0;
-  background:linear-gradient(90deg, rgba(15,23,42,.85), rgba(15,23,42,.2));
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(15,23,42,.85), rgba(15,23,42,.2));
   z-index: 1;
 }
 
 .hero .container{
-  position:relative;
-  z-index:2;
+  position: relative;
+  z-index: 2;
 }
-
 
 /* Cards */
 .lift{
-  transition:transform .2s ease, box-shadow .2s ease;
+  transition: transform .2s ease, box-shadow .2s ease;
 }
 
 .lift:hover{
-  transform:translateY(-4px);
-  box-shadow:0 12px 30px rgba(0,0,0,.08);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0,0,0,.08);
 }
 
 .pill{
-  display:inline-block;
-  padding:.6rem 1rem;
-  border:1px solid #e5e7eb;
-  border-radius:999px;
+  display: inline-block;
+  padding: .6rem 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 999px;
 }
 
-.nav-link{font-weight:500}
-.navbar .btn{font-weight:600}
-
-html, body{
-  width: 100%;
-  overflow-x: hidden;
+.nav-link{
+  font-weight: 500;
 }
 
-img, jpg, svg, video, canvas, iframe{
-  max-width: 100% !important;
-}
-/* =========================
-   iPhone/Safari Overflow Fix
-   (GANZ UNTEN in style.css)
-   ========================= */
-
-/* 1) Harte Overflow-Bremse */
-html, body{
-  width: 100%;
-  overflow-x: hidden;
+.navbar .btn{
+  font-weight: 600;
 }
 
-/* 2) Alle Medien dürfen nie breiter als Screen sein */
-img, svg, video, canvas, iframe{
-  max-width: 100% !important;
-}
-
-/* 3) WICHTIG: Kein 100vw + negative margins im Hero */
-.hero{
-  width: 100%;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-}
-
-/* 4) Mobile Hero + Buttons */
+/* ===== Mobile Fixes ===== */
 @media (max-width: 576px){
   .hero{
     min-height: 50vh;
@@ -123,16 +124,22 @@ img, svg, video, canvas, iframe{
   .hero .btn-lg{
     width: 100%;
   }
+
+  .py-6{
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .card-img-top{
+    height: 180px;
+    object-fit: cover;
+  }
+
+  .card-body{
+    padding: 1rem;
+  }
+
+  .row.g-4{
+    --bs-gutter-y: 1rem;
+  }
 }
-
-html{
-  -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
-}
-
-img, svg, video, canvas, iframe{
-  max-width: 100% !important;
-  height: auto;
-}
-
-
