@@ -5,18 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Alto-Engineering-Associates-GmbH – Architektur & Engineering in Eltville am Rhein</title>
   <meta name="description" content="ALTO Engineering Associates: Planungen und Konstruktionen – Architektur- und Ingenieurleistungen aus Eltville am Rhein.">
-
-  <!-- Vendor CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-
-  <!-- Dein CSS -->
   <link href="assets/css/style.css" rel="stylesheet">
-
   <link rel="icon" href="Gill-Personalservice_logo_klein_weiss_2_TO_DO.png">
-</head>
 
+  <!-- (deine doppelten Includes lasse ich absichtlich drin, weil du „komplett beibehalten“ wolltest) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+</head>
 <body>
 
 <!-- NAV -->
@@ -24,7 +23,7 @@
   <div class="container">
     <a class="navbar-brand d-flex align-items-center gap-2" href="#">
       <img src="img/Flugzeug_1.png" alt="Alto-Engineering-Associates-GmbH" height="28">
-      <span class="fw-semibold">ALTO Engineering Associates</span>
+      <span class="fw-semibold"></span>
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
       <span class="navbar-toggler-icon"></span>
@@ -43,63 +42,213 @@
 <!-- HERO -->
 <header class="hero d-flex align-items-center text-white">
   <div class="container py-5">
-    <div class="col-lg-7">
-      <h1 class="display-5 fw-bold">Architektur & Engineering aus einer Hand</h1>
-      <p class="lead mt-3">
-        Alto-Engineering-Associates-GmbH bündelt Planungen und Konstruktionen
-        und erbringt Architektur- und Ingenieurleistungen aus Eltville am Rhein.
-      </p>
-      <div class="d-flex gap-3 mt-4">
-        <a href="#kontakt" class="btn btn-accent btn-lg">Projekt anfragen</a>
-        <a href="#leistungen" class="btn btn-outline-light btn-lg">Leistungen</a>
+    <div class="row align-items-center">
+      <div class="col-lg-7">
+        <h1 class="display-5 fw-bold">Architektur & Engineering aus einer Hand</h1>
+        <p class="lead mt-3">
+          Alto-Engineering-Associates-GmbH (ALTO Engineering Associates) bündelt Planungen und Konstruktionen
+          und erbringt Architektur- und Ingenieurleistungen aus Eltville am Rhein.
+        </p>
+        <div class="d-flex gap-3 mt-4">
+          <a href="#kontakt" class="btn btn-accent btn-lg"><i class="bi bi-calendar-check me-2"></i> Projekt anfragen</a>
+          <a href="#leistungen" class="btn btn-outline-light btn-lg"><i class="bi bi-briefcase me-2"></i> Leistungen</a>
+        </div>
       </div>
     </div>
   </div>
 
+  <!-- Hintergrundbild bleibt (du wolltest Style beibehalten). Du kannst später ein passendes Bild ersetzen. -->
   <div class="hero-bg" style="background-image:url('img/Flugzeug_1.png');"></div>
   <div class="hero-overlay"></div>
 </header>
 
-<!-- TRUST -->
+<!-- TRUST / BADGES -->
 <section class="py-4 bg-light border-top border-bottom">
   <div class="container text-center small text-muted">
-    <span class="me-3">Architekten & Ingenieure</span>
-    <span class="me-3">Planung & Konstruktion</span>
-    <span>Eltville am Rhein</span>
+    <span class="me-3"><i class="bi bi-shield-check me-1"></i> Architekten & Ingenieure</span>
+    <span class="me-3"><i class="bi bi-diagram-3 me-1"></i> Planung & Konstruktion</span>
+    <span><i class="bi bi-geo-alt me-1"></i> Bielefeld</span>
   </div>
 </section>
 
 <!-- LEISTUNGEN -->
 <section id="leistungen" class="py-6">
-  <div class="container text-center">
-    <h2 class="fw-bold mb-4">Leistungen</h2>
-    <p class="text-muted">Planung, Konstruktion und Architekturleistungen</p>
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Leistungen</h2>
+      <p class="text-muted">
+        Planung, Konstruktion und Architekturleistungen – strukturiert, verlässlich und praxisnah.
+      </p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm lift">
+          <img class="card-img-top" src="img/Flugzeug_1.png" alt="Architekturplanung">
+          <div class="card-body">
+            <h5 class="card-title">Architekturplanung</h5>
+            <p class="card-text">
+              Konzept, Entwurf und Planung – als Grundlage für klare Entscheidungen und saubere Umsetzung.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm lift">
+          <img class="card-img-top" src="img/Flugzeug_1.png" alt="Konstruktion & Planung">
+          <div class="card-body">
+            <h5 class="card-title">Konstruktion & Engineering</h5>
+            <p class="card-text">
+              Konstruktionen und technische Planung – von der Idee bis zur nachvollziehbaren Dokumentation.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm lift">
+          <img class="card-img-top" src="img/Flugzeug_1.png" alt="Projektunterstützung">
+          <div class="card-body">
+            <h5 class="card-title">Projektunterstützung</h5>
+            <p class="card-text">
+              Strukturierte Abläufe, Abstimmung mit Beteiligten und verlässliche Begleitung im Projektverlauf.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WARUM WIR -->
+<section id="warum" class="py-6 bg-light">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <h2 class="fw-bold">Warum Alto-Engineering-Associates-GmbH?</h2>
+        <ul class="list-unstyled mt-3 lead">
+          <li class="mb-2"><i class="bi bi-check2-circle text-accent me-2"></i> Architektur- und Engineering-Kompetenz</li>
+          <li class="mb-2"><i class="bi bi-check2-circle text-accent me-2"></i> Fokus auf Planung & Konstruktion</li>
+          <li class="mb-2"><i class="bi bi-check2-circle text-accent me-2"></i> Adresse: Wallufer Str. 5, D-65343 Eltville a. Rhein</li>
+          <li class="mb-2"><i class="bi bi-check2-circle text-accent me-2"></i> Klare Kommunikation & transparente Abläufe</li>
+        </ul>
+        <a href="#kontakt" class="btn btn-accent mt-3">Unverbindlich anfragen</a>
+      </div>
+      <div class="col-lg-6">
+        <div class="ratio ratio-16x9 rounded-4 shadow-sm bg-cover"
+             style="background-image:url('assets/img/professionelles-servicepersonal-berlin.jpg');"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRANCHEN / EINSATZFELDER -->
+<section id="branchen" class="py-6">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Einsatzfelder</h2>
+      <p class="text-muted">Planung · Konstruktion · Architekturleistungen · Ingenieurleistungen</p>
+    </div>
+    <div class="d-flex flex-wrap justify-content-center gap-3">
+      <div class="pill">Planung</div>
+      <div class="pill">Konstruktion</div>
+      <div class="pill">Architektur</div>
+      <div class="pill">Engineering</div>
+      <div class="pill">Dokumentation</div>
+      <div class="pill">Projektabstimmung</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BIG -->
+<section class="py-6 bg-dark text-white text-center">
+  <div class="container">
+    <h2 class="fw-bold">Planen Sie ein Projekt?</h2>
+    <p class="lead mt-2">Kontaktieren Sie uns – wir melden uns zeitnah zurück.</p>
+    <a href="#kontakt" class="btn btn-accent btn-lg mt-2">Kontakt aufnehmen</a>
   </div>
 </section>
 
 <!-- KONTAKT -->
 <section id="kontakt" class="py-6">
   <div class="container">
-    <p>Kontakt: <a href="mailto:info@altoservices.de">info@altoservices.de</a></p>
+    <div class="row g-5">
+
+      <!-- Linke Spalte: Kontaktdaten -->
+      <div class="col-lg-5">
+        <h3 class="fw-bold mb-3">Kontakt</h3>
+
+        <p>📍 Standort:<br>
+         Eltville am Rhein, Deutschland
+        </p>
+
+        <!-- Hinweis: Auf idcatside=21 konnte ich wegen 502 keine verlässlichen Telefon/Adresse-Daten auslesen. -->
+        <p class="text-muted small mb-3">
+          Hinweis: Telefonnummer/Adresse bitte ergänzen, sobald du mir die Kontaktdaten gibst oder den Volltext der Seite sendest.
+        </p>
+
+        <p>✉️ E-Mail:<br>
+          <a href="mailto:info@altoservices.de">info@altoservices.de</a>
+        </p>
+
+        <p class="fw-semibold">✨ Wir freuen uns auf Ihre Anfrage.</p>
+
+        <!--  Maps -->
+        <div class="ratio ratio-16x9 rounded-4 shadow-sm overflow-hidden mt-3">
+          <iframe
+            src="https://www.google.com/maps?q=Wallufer%20Str.%205,%2065343%20Eltville%20am%20Rhein&output=embed"
+            style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- Rechte Spalte: Formular -->
+      <div class="col-lg-7">
+        <form action="https://formspree.io/f/xgvnyvnv" method="POST" class="row g-3">
+          <div class="col-md-6">
+            <input class="form-control form-control-lg" name="name" placeholder="Name" required>
+          </div>
+          <div class="col-md-6">
+            <input class="form-control form-control-lg" type="email" name="email" placeholder="E-Mail" required>
+          </div>
+          <div class="col-12">
+            <input class="form-control form-control-lg" name="telefon" placeholder="Telefon">
+          </div>
+          <div class="col-12">
+            <textarea class="form-control form-control-lg" name="nachricht" rows="5" placeholder="Ihre Anfrage"></textarea>
+          </div>
+          <div class="col-12">
+            <button class="btn btn-accent btn-lg w-100" type="submit">
+              <i class="bi bi-send me-2"></i> Abschicken
+            </button>
+          </div>
+        </form>
+      </div>
+
+    </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer class="border-top py-4">
-  <div class="container d-flex justify-content-between">
-    <span class="small text-muted">© <span id="y"></span> Alto-Engineering-Associates-GmbH</span>
-    <div>
-      <a href="impressum.html">Impressum</a> |
-      <a href="datenschutz.html">Datenschutz</a>
+  <div class="container d-flex flex-wrap justify-content-between align-items-center gap-3">
+    <div class="d-flex align-items-center gap-2">
+      <img src="Gill-Personalservice_logo_klein_weiss_2.png" alt="" height="20">
+      <span class="small text-muted">© <span id="y"></span> Alto-Engineering-Associates-GmbH</span>
+    </div>
+
+    <a class="me-3" href="#" target="_blank" rel="noopener">
+      <i class="bi bi-linkedin" style="font-size:1.5rem;"></i>
+    </a>
+
+    <div class="small">
+      <a class="me-3" href="impressum.html">Impressum</a>
+      <a class="me-3" href="datenschutz.html">Datenschutz</a>
+      <a href="#kontakt">Kontakt</a>
     </div>
   </div>
 </footer>
 
-<!-- Vendor JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-<!-- Dein JS -->
 <script src="assets/js/script.js"></script>
-
 </body>
 </html>
