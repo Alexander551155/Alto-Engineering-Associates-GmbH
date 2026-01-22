@@ -82,4 +82,6 @@
 html {
   font-size: 118%; /* ca. +3 Stufen */
 }
-
+.btn-accent {
+  color: #fff !important;
+}
