@@ -114,3 +114,37 @@ html {
 .reveal-stagger.is-visible > *:nth-child(2) { transition-delay: .12s; }
 .reveal-stagger.is-visible > *:nth-child(3) { transition-delay: .19s; }
 
+
+/* === Modern Effects === */
+
+/* 1) Hero Zoom (Ken Burns) */
+@keyframes heroZoom {
+  from { background-size: 105%; }
+  to   { background-size: 112%; }
+}
+
+.hero {
+  animation: heroZoom 14s ease-in-out infinite alternate;
+}
+
+/* 2) Buttons nicer hover */
+.btn-accent, .btn-outline-light {
+  transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+}
+
+.btn-accent:hover, .btn-outline-light:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(0,0,0,.28);
+}
+
+/* 3) Navbar blur on scroll */
+.navbar {
+  transition: box-shadow .2s ease, background-color .2s ease, backdrop-filter .2s ease;
+}
+
+.navbar.scrolled {
+  background: rgba(255,255,255,.85) !important;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+
