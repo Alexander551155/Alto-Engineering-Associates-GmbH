@@ -166,17 +166,37 @@ html { font-size: 100%; }
   .nav-link { font-size: 1.15rem; } /* Desktop */
 }
 
-/* ===== Mobile Fixes ===== 
+/* =========================================================
+   Ergänzungen (überschreiben Original nur dort, wo nötig)
+   ========================================================= */
+
+/* Font-Size: Mobile normal, Desktop größer */
+html { font-size: 100%; }
+@media (min-width: 992px){
+  html { font-size: 118%; }
+}
+
+/* Nav-Links: responsive */
+.nav-link { 
+  font-weight: 600; 
+  font-size: 1rem;
+  line-height: 1.2;
+}
+@media (min-width: 992px){
+  .nav-link { font-size: 1.15rem; }
+}
+
+/* ✅ Full-width Hero FIX (wichtig gegen "links schmal / rechts weiß") */
+.hero{
+  width: 100%;
+}
+
+/* ===== Mobile Fixes ===== */
 @media (max-width: 576px) {
   .hero { 
     min-height: 50vh; 
-    animation: none;  Mobile Performance 
-  }*/
-.hero {
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
-}
-
+    animation: none; /* Mobile Performance */
+  }
 
   .hero h1 { 
     font-size: 2rem; 
@@ -188,10 +208,6 @@ html { font-size: 100%; }
   }
 
   /* Buttons im Hero untereinander + volle Breite */
-  .hero .d-flex.gap-3 { 
-    flex-direction: column; 
-    align-items: stretch; 
-  }
   .hero .btn-lg { 
     width: 100%; 
   }
@@ -212,3 +228,4 @@ html { font-size: 100%; }
   .card-body { padding: 1rem; }
   .row.g-4 { --bs-gutter-y: 1rem; }
 }
+
