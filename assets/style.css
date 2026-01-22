@@ -91,3 +91,17 @@ img, svg, video, canvas, iframe{
   .card-img-top{height:180px; object-fit:cover;}
   .py-6{padding-top:3rem; padding-bottom:3rem;}
 }
+
+*{ box-sizing:border-box; }
+
+html, body{
+  width:100%;
+  max-width:100%;
+  overflow-x:hidden;
+  margin:0;
+}
+img, iframe, video, canvas, svg{
+  max-width:100%;
+  height:auto;
+}
+
