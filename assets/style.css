@@ -21,7 +21,6 @@
   color: #fff !important;
 }
 
-
 .text-accent{color:var(--accent)!important}
 
 .py-6{
@@ -48,7 +47,6 @@
   z-index: 0;
 }
 
-
 .hero-overlay{
   position:absolute;
   inset:0;
@@ -60,7 +58,6 @@
   position:relative;
   z-index:2;
 }
-
 
 /* Cards */
 .lift{
@@ -79,19 +76,9 @@
   border-radius:999px;
 }
 
-.nav-link{
-  font-weight: 600;
-  font-size: 1.15rem;
-}
-
 .navbar .btn{
   font-weight: 600;
 }
-
-html {
-  font-size: 118%; /* ca. +3 Stufen */
-}
-/* NEU 22.01.2026 4:16 */
 
 /* Scroll reveal */
 .reveal {
@@ -119,7 +106,6 @@ html {
 .reveal-stagger.is-visible > *:nth-child(1) { transition-delay: .05s; }
 .reveal-stagger.is-visible > *:nth-child(2) { transition-delay: .12s; }
 .reveal-stagger.is-visible > *:nth-child(3) { transition-delay: .19s; }
-
 
 /* === Modern Effects === */
 
@@ -154,25 +140,64 @@ html {
   box-shadow: 0 10px 30px rgba(0,0,0,.08);
 }
 
+/* =========================================================
+   Ergänzungen (überschreiben Original nur dort, wo nötig)
+   ========================================================= */
+
+/* Font-Size: Mobile normal, Desktop größer */
+html { font-size: 100%; }
+@media (min-width: 992px){
+  html { font-size: 118%; }
+}
+
+/* Nav-Links: responsive */
+.nav-link { 
+  font-weight: 600; 
+  font-size: 1rem;       /* Mobile/Tablet */
+  line-height: 1.2;
+}
+@media (min-width: 992px){
+  .nav-link { font-size: 1.15rem; } /* Desktop */
+}
 
 /* ===== Mobile Fixes ===== */
 @media (max-width: 576px) {
-  .hero { min-height: 56vh; }
-  .hero h1 { font-size: 2rem; line-height: 1.15; }
-  .hero .lead { font-size: 1.05rem; }
+  .hero { 
+    min-height: 50vh; 
+    animation: none; /* Mobile Performance */
+  }
 
-  .hero .d-flex.gap-3 { flex-direction: column; align-items: flex-start; }
-  .hero .btn-lg { width: 100%; }
+  .hero h1 { 
+    font-size: 2rem; 
+    line-height: 1.15; 
+  }
 
-  .py-6 { padding-top: 3rem; padding-bottom: 3rem; }
+  .hero .lead { 
+    font-size: 1.05rem; 
+  }
 
-  .card-img-top { height: 180px; object-fit: cover; }
+  /* Buttons im Hero untereinander + volle Breite */
+  .hero .d-flex.gap-3 { 
+    flex-direction: column; 
+    align-items: stretch; 
+  }
+  .hero .btn-lg { 
+    width: 100%; 
+  }
+
+  /* Weniger Padding für Sektionen auf Mobile */
+  .py-6 { 
+    padding-top: 3rem; 
+    padding-bottom: 3rem; 
+  }
+
+  /* Kartenbilder fix */
+  .card-img-top { 
+    height: 180px; 
+    object-fit: cover; 
+  }
+
+  /* Karten-Text/Spacing kompakter */
+  .card-body { padding: 1rem; }
+  .row.g-4 { --bs-gutter-y: 1rem; }
 }
-
-@media (min-width: 992px) {
-  .nav-link { font-size: 1.15rem; font-weight: 600; }
-}
-@media (max-width: 991.98px) {
-  .nav-link { font-size: 1rem; }
-}
-
