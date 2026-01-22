@@ -90,4 +90,38 @@ html, body{
 img, jpg, svg, video, canvas, iframe{
   max-width: 100% !important;
 }
+/* =========================
+   iPhone/Safari Overflow Fix
+   (GANZ UNTEN in style.css)
+   ========================= */
+
+/* 1) Harte Overflow-Bremse */
+html, body{
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* 2) Alle Medien dürfen nie breiter als Screen sein */
+img, svg, video, canvas, iframe{
+  max-width: 100% !important;
+}
+
+/* 3) WICHTIG: Kein 100vw + negative margins im Hero */
+.hero{
+  width: 100%;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* 4) Mobile Hero + Buttons */
+@media (max-width: 576px){
+  .hero{
+    min-height: 50vh;
+    animation: none; /* iPhone Performance */
+  }
+
+  .hero .btn-lg{
+    width: 100%;
+  }
+}
 
