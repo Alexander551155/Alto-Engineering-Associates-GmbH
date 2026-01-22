@@ -9,15 +9,18 @@
 }
 
 .btn-accent{
-  background:var(--accent);
-  border-color:var(--accent);
-  color:#111;
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff !important;
+  border: none;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.35);
 }
 
 .btn-accent:hover{
-  filter:brightness(.95);
-  color:#111;
+  filter: brightness(.95);
+  color: #fff !important;
 }
+
 
 .text-accent{color:var(--accent)!important}
 
@@ -82,17 +85,4 @@
 html {
   font-size: 118%; /* ca. +3 Stufen */
 }
-.btn-accent{
-  background: var(--accent);
-  border-color: var(--accent);
-  color: #fff !important;
-  border: none;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.35);
-}
-
-.btn-accent:hover{
-  filter: brightness(.95);
-  color: #fff !important;
-}
-
 
