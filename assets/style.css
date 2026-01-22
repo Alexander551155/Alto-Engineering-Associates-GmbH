@@ -166,12 +166,17 @@ html { font-size: 100%; }
   .nav-link { font-size: 1.15rem; } /* Desktop */
 }
 
-/* ===== Mobile Fixes ===== */
+/* ===== Mobile Fixes ===== 
 @media (max-width: 576px) {
   .hero { 
     min-height: 50vh; 
-    animation: none; /* Mobile Performance */
-  }
+    animation: none;  Mobile Performance 
+  }*/
+.hero {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+}
+
 
   .hero h1 { 
     font-size: 2rem; 
