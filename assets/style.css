@@ -1,3 +1,7 @@
+/* ==============================
+   Basis & Variablen
+   ============================== */
+
 :root{
   --brand:#0F172A;
   --accent:#C2A158;
@@ -5,38 +9,44 @@
 }
 
 *{
-  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  box-sizing: border-box;
 }
 
-/* iPhone/Safari: verhindert Text-Auto-Zoom + Layout Shift */
-html{
+/* ==============================
+   iPhone / Safari FIX (WICHTIG)
+   ============================== */
+
+html, body{
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
 }
 
-html, body{
-  width: 100%;
-  overflow-x: hidden;
-}
-
-/* Medien dürfen nie breiter als Screen sein */
 img, svg, video, canvas, iframe{
-  max-width: 100% !important;
+  max-width: 100%;
   height: auto;
+  display: block;
 }
 
-/* iFrames (Google Maps) sind oft Ursache für horizontales Scrollen */
-iframe{
-  display: block;
-  width: 100%;
+.container,
+.container-fluid{
+  max-width: 100%;
 }
+
+/* ==============================
+   Buttons
+   ============================== */
 
 .btn-accent{
   background: var(--accent);
   border-color: var(--accent);
   color: #fff !important;
   border: none;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
 }
 
 .btn-accent:hover{
@@ -44,44 +54,28 @@ iframe{
   color: #fff !important;
 }
 
-.text-accent{
-  color: var(--accent) !important;
-}
+.text-accent{color:var(--accent)!important}
+
+/* ==============================
+   Spacing
+   ============================== */
 
 .py-6{
-  padding-top: 4.5rem;
-  padding-bottom: 4.5rem;
+  padding-top:4.5rem;
+  padding-bottom:4.5rem;
 }
 
-/* HERO */
+/* ==============================
+   HERO
+   ============================== */
+
 .hero{
   position: relative;
   min-height: 66vh;
   overflow: hidden;
   background: #111;
-
-  /* Wichtig: kein 100vw/negative margins */
   width: 100%;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-}
-
-.hero-bg{
-  position: absolute;
-  inset: 0;
-  background-image: url('../img/Flugzeug_1.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  transform: scale(1.05);
-  z-index: 0;
-}
-
-.hero-overlay{
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, rgba(15,23,42,.85), rgba(15,23,42,.2));
-  z-index: 1;
+  margin: 0;
 }
 
 .hero .container{
@@ -89,45 +83,49 @@ iframe{
   z-index: 2;
 }
 
-/* Cards */
+/* ==============================
+   Cards
+   ============================== */
+
 .lift{
-  transition: transform .2s ease, box-shadow .2s ease;
+  transition:transform .2s ease, box-shadow .2s ease;
 }
 
 .lift:hover{
-  transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(0,0,0,.08);
+  transform:translateY(-4px);
+  box-shadow:0 12px 30px rgba(0,0,0,.08);
 }
+
+/* ==============================
+   Pills
+   ============================== */
 
 .pill{
-  display: inline-block;
-  padding: .6rem 1rem;
-  border: 1px solid #e5e7eb;
-  border-radius: 999px;
+  display:inline-block;
+  padding:.6rem 1rem;
+  border:1px solid #e5e7eb;
+  border-radius:999px;
 }
 
-.nav-link{
-  font-weight: 500;
-}
+/* ==============================
+   Navbar
+   ============================== */
 
-.navbar .btn{
-  font-weight: 600;
-}
+.nav-link{font-weight:500}
+.navbar .btn{font-weight:600}
 
-/* ===== Mobile Fixes ===== */
+/* ==============================
+   Mobile Optimierung
+   ============================== */
+
 @media (max-width: 576px){
+
   .hero{
     min-height: 50vh;
-    animation: none; /* iPhone Performance */
   }
 
   .hero .btn-lg{
     width: 100%;
-  }
-
-  .py-6{
-    padding-top: 3rem;
-    padding-bottom: 3rem;
   }
 
   .card-img-top{
@@ -135,39 +133,8 @@ iframe{
     object-fit: cover;
   }
 
-  .card-body{
-    padding: 1rem;
-  }
-
-  .row.g-4{
-    --bs-gutter-y: 1rem;
+  .py-6{
+    padding-top:3rem;
+    padding-bottom:3rem;
   }
 }
-
-/* FIX: Leistungen-Card-Bilder dürfen NIE overflow erzeugen */
-#leistungen img.card-img-top{
-  display: block;
-  width: 100% !important;
-  max-width: 100% !important;
-  height: auto;
-  object-fit: cover;
-}
-
-/* FIX: verhindert overflow durch Bootstrap row gutters */
-#leistungen .row{
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-}
-#leistungen .row > *{
-  padding-left: 12px !important;
-  padding-right: 12px !important;
-}
-
-html {
-  -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
-}
-
-
-
-
