@@ -1,3 +1,11 @@
+// Fallback: Wenn IntersectionObserver nicht verfügbar ist, alles direkt anzeigen
+if (!('IntersectionObserver' in window)) {
+  document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => {
+    el.classList.add('is-visible');
+  });
+  return;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 
   /* =========================
