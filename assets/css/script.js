@@ -23,3 +23,20 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 });
+
+/* NEUE */
+
+
+// Scroll Reveal (IntersectionObserver)
+const revealEls = document.querySelectorAll('.reveal, .reveal-stagger');
+
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-visible');
+      io.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+revealEls.forEach(el => io.observe(el));
