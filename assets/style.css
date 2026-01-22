@@ -87,7 +87,7 @@ html, body{
   overflow-x: hidden;
 }
 
-img, svg, video, canvas, iframe{
+img, jpg, svg, video, canvas, iframe{
   max-width: 100% !important;
 }
 
