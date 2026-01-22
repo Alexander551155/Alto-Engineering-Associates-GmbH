@@ -82,3 +82,12 @@
 .nav-link{font-weight:500}
 .navbar .btn{font-weight:600}
 
+html, body{
+  width: 100%;
+  overflow-x: hidden;
+}
+
+img, svg, video, canvas, iframe{
+  max-width: 100% !important;
+}
+
