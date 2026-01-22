@@ -1,3 +1,9 @@
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+
 :root{
   --brand:#0F172A;
   --accent:#C2A158;
