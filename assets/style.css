@@ -4,30 +4,35 @@
   --muted:#64748B;
 }
 
+/* Basics */
 *{
-  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
   box-sizing:border-box;
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
 }
 
-/* ✅ iPhone/Safari: verhindert “nach rechts verrutscht / Zoom” */
 html, body{
-  width:100%;
-  max-width:100%;
   margin:0;
   padding:0;
+  width:100%;
   overflow-x:hidden;
   -webkit-text-size-adjust:100%;
   text-size-adjust:100%;
 }
 
-img, svg, video, canvas, iframe{
+/* ✅ Wichtig gegen iPhone "nach rechts": 
+   Jedes Element darf nicht über den Screen hinaus */
+body{
+  position:relative;
+}
+
+/* Media safe */
+img{
   max-width:100%;
   height:auto;
   display:block;
 }
 
-/* Sicherheit: kein Element darf breiter als Screen sein */
-.container, .container-fluid{
+iframe, video, canvas{
   max-width:100%;
 }
 
@@ -46,6 +51,7 @@ img, svg, video, canvas, iframe{
 
 .text-accent{color:var(--accent)!important}
 
+/* Sections */
 .py-6{
   padding-top:4.5rem;
   padding-bottom:4.5rem;
@@ -58,11 +64,6 @@ img, svg, video, canvas, iframe{
   overflow:hidden;
   background:#111;
   width:100%;
-  margin:0;
-}
-.hero .container{
-  position:relative;
-  z-index:2;
 }
 
 /* Cards */
@@ -84,6 +85,12 @@ img, svg, video, canvas, iframe{
 .nav-link{font-weight:500}
 .navbar .btn{font-weight:600}
 
+/* ✅ Bootstrap Row Overflow Fix (sehr oft der Übeltäter in Safari) */
+.row{
+  margin-left:0;
+  margin-right:0;
+}
+
 /* Mobile */
 @media (max-width:576px){
   .hero{min-height:50vh;}
@@ -91,17 +98,3 @@ img, svg, video, canvas, iframe{
   .card-img-top{height:180px; object-fit:cover;}
   .py-6{padding-top:3rem; padding-bottom:3rem;}
 }
-
-*{ box-sizing:border-box; }
-
-html, body{
-  width:100%;
-  max-width:100%;
-  overflow-x:hidden;
-  margin:0;
-}
-img, iframe, video, canvas, svg{
-  max-width:100%;
-  height:auto;
-}
-
