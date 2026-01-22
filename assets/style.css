@@ -98,3 +98,17 @@ iframe, video, canvas{
   .card-img-top{height:180px; object-fit:cover;}
   .py-6{padding-top:3rem; padding-bottom:3rem;}
 }
+
+/* Maps dürfen NIE overflow machen */
+.ratio iframe{
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+  max-width: 100% !important;
+}
+
+/* Safari Bug: verhindert horizontalen Scroll durch iframes */
+#kontakt{
+  overflow-x: hidden;
+}
+
