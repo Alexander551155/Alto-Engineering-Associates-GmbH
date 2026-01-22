@@ -130,3 +130,9 @@ html{
   text-size-adjust: 100%;
 }
 
+img, svg, video, canvas, iframe{
+  max-width: 100% !important;
+  height: auto;
+}
+
+
