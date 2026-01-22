@@ -1,0 +1,24 @@
+:root{
+  --brand:#0F172A;   /* тёмный */
+  --accent:#C2A158;  /* золотистый акцент */
+  --muted:#64748B;
+}
+*{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+.btn-accent{background:var(--accent); border-color:var(--accent); color:#111;}
+.btn-accent:hover{filter:brightness(.95); color:#111;}
+.text-accent{color:var(--accent)!important}
+.py-6{padding-top:4.5rem;padding-bottom:4.5rem}
+
+/* hero */
+.hero{position:relative; min-height:66vh; overflow:hidden; background:#111}
+.hero-bg{position:absolute; inset:0; background-size:cover; background-position:center; transform:scale(1.05)}
+.hero-overlay{position:absolute; inset:0; background:linear-gradient(90deg, rgba(15,23,42,.85), rgba(15,23,42,.2))}
+.hero .container{position:relative; z-index:2}
+
+/* карточки */
+.lift{transition:transform .2s ease, box-shadow .2s ease}
+.lift:hover{transform:translateY(-4px); box-shadow:0 12px 30px rgba(0,0,0,.08)}
+
+.pill{display:inline-block; padding:.6rem 1rem; border:1px solid #e5e7eb; border-radius:999px}
+.nav-link{font-weight:500}
+.navbar .btn{font-weight:600}
